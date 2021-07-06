@@ -277,7 +277,8 @@ procedure getWinnersFolder
 			.sp = noprogress To Spectrogram: 0.007, maximum_plotting_frequency, 0.002, 5, "Gaussian"
 			Erase all
 			Select outer viewport: 0, 7.5, 0, 4.5
-			@plotTable: .sp, .tbl, maximum_plotting_frequency, 1 ,"Maximum formant = " + string$(.cutoffs#[.winner]) + " Hz"			
+			# @plotTable: .sp, .tbl, maximum_plotting_frequency, 1 ,"Maximum formant = " + string$(.cutoffs#[.winner]) + " Hz"			
+			@plotTable: .sp, .tbl, maximum_plotting_frequency, 1 ,"Maximum formant = " + string$(.cutoffs#[.winner]) + " Hz", 0.025, 0.2, 0.8
 			Save as 300-dpi PNG file: folder$ + "/images_winners/" + .basename$ + "_winner_.png"
 			removeObject: .sp
 		endif 

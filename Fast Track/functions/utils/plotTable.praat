@@ -1,5 +1,5 @@
 
-procedure plotTable .sp, .tbl, .maximum_plotting_frequency, pointSize, .label$ 
+procedure plotTable .sp, .tbl, .maximum_plotting_frequency, pointSize, .label$, .buffer, .relStart, .relEnd
   selectObject: .sp
   .viewstart = Get start time
   .viewend = Get end time
@@ -36,6 +36,13 @@ procedure plotTable .sp, .tbl, .maximum_plotting_frequency, pointSize, .label$
   Black
   Text: .middleTime, "centre", .maximum_plotting_frequency+50, "bottom", .label$
   
+  
+  ##Plot relevant section
+  Purple
+  Line width: 3
+  .tokenDur = .total_duration - .buffer * 2
+  Draw line: .buffer + .tokenDur * .relStart, 0, .buffer + .tokenDur * .relStart, .maximum_plotting_frequency
+  Draw line: .buffer + .tokenDur * .relEnd, 0, .buffer + .tokenDur * .relEnd, .maximum_plotting_frequency
 
   Line width: 1
 
